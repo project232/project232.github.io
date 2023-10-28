@@ -1,48 +1,70 @@
-
+/* Container styles */
 #image-container {
     text-align: center;
     margin-top: 20px;
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
 }
+
+/* Header styles */
+h1 {
+    background: linear-gradient(to right, #0074e4, #00a3e0); /* Gradient background for the header */
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Logo styles */
+#logo {
+    height: 80px; /* Increase the logo size */
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid #0074e4; /* Blue border */
+    margin: 10px 0;
+}
+
+/* Generate Image button styles */
 #generate-image {
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 12px 24px;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 50px;
-    background: linear-gradient(red,black,blue,brown);
-    -webkit-background-clip: text;
-            color: transparent;
+    background: linear-gradient(to right, #ff5722, #f50057); /* Gradient button background */
+    color: #fff;
+    border: none;
+    margin-top: 20px;
+    transition: background 0.3s, transform 0.3s;
 }
 
-h1{
-    background: linear-gradient(indigo,skyblue,black);
-    -webkit-background-clip: text;
-            color: transparent;
+#generate-image:hover {
+    background: linear-gradient(to right, #f50057, #ff5722); /* Hover effect for the button */
+    transform: scale(1.05); /* Button scales up on hover */
 }
-#logo{
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    border: dotted black 2px;
 
-}
-/* Define the default styles for the generative image */
+/* Random Image styles */
 #random-image {
-    max-width: 100%; /* Ensure the image is responsive and scales down to fit its container */
-    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #0074e4; /* Blue border around the image */
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 /* Media query for small screens (e.g., mobile devices) */
 @media (max-width: 900px) {
     #random-image {
-        max-width: 100%; /* Adjust the maximum width for small screens */
-        height: auto; /* Let the height adjust automatically */
+        max-width: 100%;
+        height: auto;
     }
 }
 
 /* Media query for larger screens */
 @media (min-width: 901px) {
     #random-image {
-        max-width: 100%; /* Adjust the maximum width for larger screens */
-        height: auto; /* Let the height adjust automatically */
+        max-width: 100%;
+        height: auto;
     }
 }
