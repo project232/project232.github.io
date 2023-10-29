@@ -1,38 +1,28 @@
+const widthInput = document.getElementById('width');
+const heightInput = document.getElementById('height');
+const generateImageButton = document.getElementById('generateimage');
 const randomImageElement = document.getElementById('random-image');
-const generateImageButton = document.getElementById('generate-image');
+const customCategoryInput = document.getElementById('custom-category');
 
-generateImageButton.addEventListener('click', function () {
-    console.log("Button clicked"); // Debugging statement
-    
-    // Determine the screen width
-    const screenWidth = window.innerWidth;
+generateImageButton.addEventListener('click', () => {
+    const customCategory = customCategoryInput.value.trim();
+    const customWidth = widthInput.value;
+    const customHeight = heightInput.value;
 
-    console.log("Screen width: " + screenWidth); // Debugging statement
-    
-    // Determine the image dimensions based on the screen width
-    let imageWidth, imageHeight;
-
-    if (screenWidth <= 1100) {
-        // For small screens (e.g., mobile devices)
-        imageWidth = 800;
-        imageHeight = 1800;
-    } else {
-        // For larger screens
-        imageWidth = 1200;
-        imageHeight = 800;
+    if (!customWidth || !customHeight || customWidth <= 0 || customHeight <= 0 || !customCategory) {
+        alert("Please enter valid width, height, and category");
+        return;
     }
-    
-    console.log("Image dimensions - Width: " + imageWidth + " Height: " + imageHeight); // Debugging statement
 
-    // Generate a random image with the adjusted dimensions
-    fetch(`https://picsum.photos/${imageWidth}/${imageHeight}`)
+    fetch(`https://api.unsplash.com/photos/random?query=${customCategory}&client_id=fliw8d5grzxtwLk5Ch6W51FkneWiF65qkuHDFqY3UFw&w=${customWidth}&h=${customHeight}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.url;
+            return response.json();
         })
-        .then((randomURL) => {
+        .then((data) => {
+            const randomURL = data.urls.regular;
             // Update the image source
             randomImageElement.src = randomURL;
         })
