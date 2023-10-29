@@ -1,11 +1,12 @@
 /* Container styles */
 #image-container {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px auto;
     background-color: #f5f5f5; /* Light gray background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+    max-width: 800px;
 }
 
 /* Header styles */
@@ -13,58 +14,143 @@ h1 {
     background: linear-gradient(to right, #0074e4, #00a3e0); /* Gradient background for the header */
     -webkit-background-clip: text;
     color: transparent;
-    font-size: 32px;
+    font-size: 36px;
+    font-family: 'Arial', sans-serif;
     margin-bottom: 20px;
 }
 
 /* Logo styles */
 #logo {
-    height: 80px; /* Increase the logo size */
-    width: 80px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
-    border: 2px solid #0074e4; /* Blue border */
-    margin: 10px 0;
+    border: 4px solid #0074e4;
+    margin: 20px 0;
+    transition: transform 0.3s;
+}
+
+#logo:hover {
+    transform: rotate(360deg);
 }
 
 /* Generate Image button styles */
-#generate-image {
-    padding: 12px 24px;
+#generateimage {
+    padding: 15px 30px;
     font-size: 20px;
     cursor: pointer;
     border-radius: 50px;
-    background: linear-gradient(to right, #ff5722, #f50057); /* Gradient button background */
+    background: linear-gradient(to right, #ff5722, #f50057);
     color: #fff;
     border: none;
     margin-top: 20px;
     transition: background 0.3s, transform 0.3s;
+    font-family: 'Arial', sans-serif;
 }
 
-#generate-image:hover {
-    background: linear-gradient(to right, #f50057, #ff5722); /* Hover effect for the button */
-    transform: scale(1.05); /* Button scales up on hover */
+#generateimage:hover {
+    background: linear-gradient(to right, #f50057, #ff5722);
+    transform: scale(1.1);
 }
 
 /* Random Image styles */
 #random-image {
     max-width: 100%;
     height: auto;
-    border: 2px solid #0074e4; /* Blue border around the image */
+    border: 4px solid #0074e4;
     border-radius: 10px;
     margin-top: 20px;
+    transition: transform 0.3s;
 }
 
+#random-image:hover {
+    transform: scale(1.05);
+}
+
+/* Input field styles */
+.dime {
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #0074e4;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: 5px;
+    transition: border-color 0.3s, transform 0.3s, background-color 0.3s;
+}
+
+.dime:hover {
+    background-color: #f0f0f0;
+}
+
+.dime:focus {
+    border-color: #00a3e0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Input elements inside the "dime" class */
+.dime input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    margin-right: 10px;
+}
+/* Style the custom category input */
+.cato {
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #0074e4;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: 5px;
+    transition: border-color 0.3s, transform 0.3s, background-color 0.3s;
+}
+
+.cato:hover {
+    background-color: #f0f0f0;
+}
+
+.cato:focus {
+    border-color: #00a3e0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 /* Media query for small screens (e.g., mobile devices) */
-@media (max-width: 900px) {
-    #random-image {
-        max-width: 100%;
-        height: auto;
+@media (max-width: 1100px) {
+    #image-container {
+        padding: 10px;
     }
-}
 
-/* Media query for larger screens */
-@media (min-width: 901px) {
-    #random-image {
-        max-width: 100%;
-        height: auto;
+    h1 {
+        font-size: 24px;
+    }
+
+    #logo {
+        height: 80px;
+        width: 80px;
+        margin: 10px 0;
+    }
+
+    #generateimage {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .dime {
+        width: 100%;
+        max-width: 250px;
+        height: 35px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .cato {
+        width: 100%;
+        max-width: 250px;
+        height: 35px;
+        padding: 8px;
+        font-size: 14px;
     }
 }
